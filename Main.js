@@ -17,25 +17,24 @@ for (var i=0; i < x.length; i++) {
 }
 
 const start = new Position(0,0,0);
-const end = new Position(200,200,100);
+const end = new Position(200,200,125);
 
 search(pos,start,end);
 
 function search(positions,start,end){
     let openList=[];
     let closedList=[];
-    let Path=[];
-    if (isValid(start.x,start.y,start.z) == false || isValid(end.x,end.y,end.z) == false) {
+    if (isValid(start.x,start.y,start.z) === false || isValid(end.x,end.y,end.z) === false) {
         console.log("Starting or End point is invalid");
         return;
     }
 
-    if (isEnabled(start.enabled) == false || isEnabled(end.enabled) == false) {
+    if (isEnabled(start.enabled) === false || isEnabled(end.enabled) === false) {
         console.log("Starting or End point is blocked");
         return;
     }
 
-    if (isDestination(start.x,start.y,start.z) == true){
+    if (isDestination(start.x,start.y,start.z) === true){
         console.log("We are already at the destination");
         return;
     }
@@ -46,7 +45,6 @@ function search(positions,start,end){
     start.parent_y=start.y;
     start.parent_z=start.z;
     openList.push(start);
-    Path.push(start);
 
     let foundDest = false;
 
@@ -66,16 +64,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 25.0;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                         currentNeighbour.f = fNew;
                         currentNeighbour.g = gNew;
                         currentNeighbour.h = hNew;
@@ -96,16 +94,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 25.0;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -126,16 +124,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 100.0;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -156,16 +154,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 103.077641;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -186,16 +184,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 103.077641;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -216,16 +214,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 100.0;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -246,16 +244,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 103.077641;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -276,16 +274,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 103.077641;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -306,16 +304,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 100.0;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -336,16 +334,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 103.077641;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -366,16 +364,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 103.077641;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -396,16 +394,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 141.421356;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -426,16 +424,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 143.614066;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -456,16 +454,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 143.614066;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -486,16 +484,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 100.0;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -516,16 +514,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 143.614066;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -546,16 +544,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 143.614066;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -576,16 +574,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 100.0;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -606,16 +604,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 103.077641;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -636,16 +634,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 103.077641;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -666,16 +664,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 100.0;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -696,16 +694,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 143.614066;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -726,16 +724,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 143.614066;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -756,16 +754,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 100.0;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -786,16 +784,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 143.614066;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -816,16 +814,16 @@ function search(positions,start,end){
                 end.parent_y = currentNode.y;
                 end.parent_z = currentNode.z;
                 console.log('The destination has been reached');
-                Path.push(currentNeighbour);
+                PrintPath(currentNeighbour);
                 foundDest = true;
                 return
             }
-            else if( containsPosition(currentNeighbour,closedList) == false && isEnabled(currentNeighbour.enabled) == true){
+            else if( containsPosition(currentNeighbour,closedList) === false && isEnabled(currentNeighbour.enabled) === true){
                 gNew = currentNode.g + 143.614066;
                 hNew = calculateH(currentNeighbour.x,currentNeighbour.y,currentNeighbour.z);
                 fNew = gNew + hNew;
 
-                if (currentNeighbour.f == FLT_MAX || currentNeighbour.f > fNew){
+                if (currentNeighbour.f === FLT_MAX || currentNeighbour.f > fNew){
                     currentNeighbour.f = fNew;
                     currentNeighbour.g = gNew;
                     currentNeighbour.h = hNew;
@@ -872,7 +870,7 @@ function isEnabled(boolean){
 }
 
 function isDestination(x,y,z){
-    return (x==end.x) && (y==end.y) && (z==end.z)
+    return (x===end.x) && (y===end.y) && (z===end.z)
 }
 
 function calculateH (x,y,z){
@@ -893,8 +891,22 @@ function containsPosition(obj, list){
 function getPosition(x,y,z,list){
     let i;
     for (i = 0; i< list.length;i++){
-        if (list[i].x == x && list[i].y == y && list[i].z == z){
+        if (list[i].x === x && list[i].y === y && list[i].z === z){
             return list[i];
         }
     }
+}
+
+function PrintPath(node){
+    let Path=[];
+    console.log('The path is ');
+    while (!(node.x === start.x && node.y === start.y && node.z === start.z)){
+        Path.push(node);
+        var temp_x = node.parent_x;
+        var temp_y = node.parent_y;
+        var temp_z = node.parent_z;
+        node = getPosition(temp_x,temp_y,temp_z,pos);
+    }
+    Path.push(start);
+    console.log(Path);
 }
